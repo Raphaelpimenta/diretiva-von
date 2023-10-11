@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-on</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <!-- Modificadors -->
+    <!-- https://pt.vuejs.org/api/built-in-directives.html#v-on -->
+
+
+    <div id="app">
+        <button @click="contador++">teste</button>
+        {{contador}}
+        <button @click="ativo = !ativo">Toggle</button>
+        {{ativo}}
+        <a href="#interno" @click.prevent.once="handclick">Link interno</a>
+
+        <input type="text" @keyup="handclick">
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                contador: 0,
+                ativo: true
+            },
+            methods: {
+                handclick(event){
+                    console.log(event.key)
+                }
+            }
+        })
+    </script>
+
+    
+</body>
+</html>
